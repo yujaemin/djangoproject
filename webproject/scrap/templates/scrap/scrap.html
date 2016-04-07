@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+  .tg .tg-baqh{text-align:center;vertical-align:top}
+  .tg .tg-3oug{background-color:#fd6864;text-align:center;vertical-align:top}
+  .tg .tg-lcoa{background-color:#34cdf9;text-align:center}
+  .tg .tg-fvov{background-color:#34cdf9;text-align:center;vertical-align:top}
+  </style>
+
+  <form>
+    TEST
+    {{ status }}
+    <button type="submit" name="scrap" value="">정지</button>
+    <table class="tg">
+      <tr>
+        <th class="tg-lcoa">사이트</th>
+        <th class="tg-fvov">상태</th>
+        <th class="tg-fvov">버튼</th>
+      </tr>
+      <tr>
+        <td class="tg-baqh">11번가</td>
+        {% if status == '11st' %}
+          <td class="tg-3oug">진행중</td>
+        {% endif %}
+        {% if status != '11st' %}
+          <td class="tg-baqh">대기중</td>
+        {% endif %}
+        <td class="tg-baqh"><button type="submit" name="scrap" value="11st">수집</button></td>
+      </tr>
+      <tr>
+        <td class="tg-baqh">쿠팡</td>
+        {% if status == 'coupang' %}
+          <td class="tg-3oug">진행중</td>
+        {% endif %}
+        {% if status != 'coupang' %}
+          <td class="tg-baqh">대기중</td>
+        {% endif %}
+        <td class="tg-baqh"><button type="submit" name="scrap" value="coupang">수집</button></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

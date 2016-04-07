@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    입력 : <input type="search" name="query" size="20">
+    <br>
+    <br>
+    <div style="width: 100%;">
+      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px; ">
+        MECAB
+        <br>
+        <br>
+        {{ result_MECAB | safe }}
+      </div>
+      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px;">
+        CoreKMA
+        <br>
+        <br>
+        {{ result_KMA | safe }}
+      </div>
+    </div>
+  </form>
+  <form>
+    <div style="width: 100%; overflow: hidden">
+        대용량 파일 batch test :
+        <input type="submit" value="batch" name="batch">
+    </div>
+    <div style="width: 100%;">
+      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px; ">
+        MECAB
+        <br>
+        <br>
+        {{ result_MECAB_batch }}
+      </div>
+      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px;">
+        CoreKMA
+        <br>
+        <br>
+        {{ result_KMA_batch }}
+      </div>
+    </div>
+  </form>
+  <form method="post" enctype="multipart/form-data" action="." accept-charset="UTF-8" onsubmit="document.charset='UTF-8';">{% csrf_token %}
+    <div style="width: 100%; overflow: hidden">
+        업로드 파일 batch test :
+        <input type="file" name="file" value="">
+        <input type="submit" value="UPLOAD" name="batch">
+    </div>
+    <div style="width: 100%;">
+      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px; ">
+        MECAB
+        <br>
+        <br>
+        {{ result_MECAB_batch }}
+      </div>
+      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px;">
+        CoreKMA
+        <br>
+        <br>
+        {{ result_KMA_batch }}
+      </div>
+    </div>
+  </form>
+</body>
+</html>
