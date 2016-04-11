@@ -3,67 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;width:100%}
+    .tg tr{width:50%;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+    .tg th{font-family:Arial, sans-serif;width:50%;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+    .tg .tg-4eph{background-color:#f9f9f9}
+  </style>
 </head>
 <body>
   <form>
     입력 : <input type="search" name="query" size="20">
     <br>
+    <table class="tg">
+      <tr>
+        <th class="tg-031e">MECAB</th>
+        <th class="tg-031e">CoreKMA</th>
+      </tr>
+      <tr>
+        <td class="tg-031e">
+          {{ result_MECAB | safe }}
+        </td>
+        <td class="tg-z2zr">
+          {{ result_KMA | safe }}
+        </td>
+      </tr>
+    </table>
     <br>
-    <div style="width: 100%;">
-      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px; ">
-        MECAB
-        <br>
-        <br>
-        {{ result_MECAB | safe }}
-      </div>
-      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px;">
-        CoreKMA
-        <br>
-        <br>
-        {{ result_KMA | safe }}
-      </div>
-    </div>
   </form>
   <form>
-    <div style="width: 100%; overflow: hidden">
-        대용량 파일 batch test :
-        <input type="submit" value="batch" name="batch">
-    </div>
-    <div style="width: 100%;">
-      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px; ">
-        MECAB
-        <br>
-        <br>
-        {{ result_MECAB_batch }}
-      </div>
-      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px;">
-        CoreKMA
-        <br>
-        <br>
-        {{ result_KMA_batch }}
-      </div>
-    </div>
+    대용량 파일 batch test : <button value="batch" name="batch">실행</button>
+    <br>
+    <table class="tg">
+      <tr>
+        <th class="tg-031e">MECAB</th>
+        <th class="tg-031e">CoreKMA</th>
+      </tr>
+      <tr>
+        <td class="tg-031e">
+          {{ result_MECAB_batch | safe }}
+        </td>
+        <td class="tg-z2zr">
+          {{ result_KMA_batch | safe }}
+        </td>
+      </tr>
+    </table>
+    <br>
   </form>
-  <form method="post" enctype="multipart/form-data" action="." accept-charset="UTF-8" onsubmit="document.charset='UTF-8';">{% csrf_token %}
-    <div style="width: 100%; overflow: hidden">
-        업로드 파일 batch test :
+  <form method="post" enctype="multipart/form-data" action=".">{% csrf_token %}
+        업로드 파일 :
         <input type="file" name="file" value="">
         <input type="submit" value="UPLOAD" name="batch">
-    </div>
-    <div style="width: 100%;">
-      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px; ">
-        MECAB
         <br>
-        <br>
-        {{ result_MECAB_batch }}
-      </div>
-      <div style="border: 1px solid black; float: left; width: 45%; padding: 10px;">
-        CoreKMA
-        <br>
-        <br>
-        {{ result_KMA_batch }}
-      </div>
-    </div>
+    <table class="tg">
+      <tr>
+        <th class="tg-031e">MECAB</th>
+        <th class="tg-031e">CoreKMA</th>
+      </tr>
+      <tr>
+        <td class="tg-031e">
+        {{ result_file_MECAB | safe }}
+        </td>
+        <td class="tg-z2zr">
+        {{ result_file_KMA | safe }}
+        </td>
+      </tr>
+      <tr>
+        <td class="tg-031e">
+        {{ result_file_MECAB_time | safe }}
+        </td>
+        <td class="tg-z2zr">
+        {{ result_file_KMA_time | safe }}
+        </td>
+      </tr>
+    </table>
   </form>
 </body>
 </html>

@@ -4,7 +4,13 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-#from . import
+import sys
+import os
+
+current_path = os.path.abspath('')
+sys.path.append(current_path + '/study/kma/django/webproject/module')
+
+import db_module
 
 def scrap(request):
     get_scrap = request.GET.get('scrap')

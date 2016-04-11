@@ -28,22 +28,32 @@
       <tr>
         <td class="tg-baqh">11번가</td>
         {% if status == '11st' %}
-          <td class="tg-3oug">진행중</td>
+        <td class="tg-3oug">진행중</td>
+        <td class="tg-baqh"><button type="submit" name="scrap" value="11st" disabled="disabled">수집</button></td>
         {% endif %}
-        {% if status != '11st' %}
-          <td class="tg-baqh">대기중</td>
+        {% if status == 'coupang' %}
+        <td class="tg-baqh">대기중</td>
+        <td class="tg-baqh"><button type="submit" name="scrap" value="11st" disabled="disabled">수집</button></td>
         {% endif %}
+        {% if status == '' %}
+        <td class="tg-baqh">대기중</td>
         <td class="tg-baqh"><button type="submit" name="scrap" value="11st">수집</button></td>
+        {% endif %}
       </tr>
       <tr>
         <td class="tg-baqh">쿠팡</td>
         {% if status == 'coupang' %}
-          <td class="tg-3oug">진행중</td>
+        <td class="tg-3oug">진행중</td>
+        <td class="tg-baqh"><button type="submit" name="scrap" value="coupang" disabled="disabled">수집</button></td>
         {% endif %}
-        {% if status != 'coupang' %}
-          <td class="tg-baqh">대기중</td>
+        {% if status == '11st' %}
+        <td class="tg-baqh">대기중</td>
+        <td class="tg-baqh"><button type="submit" name="scrap" value="coupang" disabled="disabled">수집</button></td>
         {% endif %}
+        {% if status == '' %}
+        <td class="tg-baqh">대기중</td>
         <td class="tg-baqh"><button type="submit" name="scrap" value="coupang">수집</button></td>
+        {% endif %}
       </tr>
     </table>
   </form>
